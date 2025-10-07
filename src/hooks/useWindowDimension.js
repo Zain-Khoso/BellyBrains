@@ -1,5 +1,5 @@
 export default function () {
-    const { innerWidth: width, innerHeight: height } = window;
+  const { innerWidth: width, innerHeight: height } = window;
 
-    return { width, height };
+  return { width, height };
 }

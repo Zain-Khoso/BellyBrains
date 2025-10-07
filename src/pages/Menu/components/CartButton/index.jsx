@@ -14,83 +14,81 @@ import { PrimaryBtnIconWrapper } from "../../../../components/Button/styled";
 import { ContainedSpinner } from "../../../../components/Loaders/spinner.styled";
 
 export default function CartButton({ dish }) {
-    // States & Contexts
-    const [isLoading, setIsLoading] = useState(false);
-    const [timmer, setTimmer] = useState(null);
-    const [user] = useAuthState(auth);
-    const { notifDispatch } = useContext(NotificationContext);
+  // States & Contexts
+  const [isLoading, setIsLoading] = useState(false);
+  const [timmer, setTimmer] = useState(null);
+  const [user] = useAuthState(auth);
+  const { notifDispatch } = useContext(NotificationContext);
 
-    const addToCart = async function () {
-        setIsLoading(true);
-        const { cart, empty, data } = await useCart(user.uid);
+  const addToCart = async function () {
+    setIsLoading(true);
+    const { cart, empty, data } = await useCart(user.uid);
 
-        // Checking if the clicked item is already present in user's cart.
-        if (!empty) {
-            const isPresent = !data.every(
-                (item) => Number(item.dishId) !== dish.id
-            );
+    // Checking if the clicked item is already present in user's cart.
+    if (!empty) {
+      const isPresent = !data.every((item) => Number(item.dishId) !== dish.id);
 
-            if (isPresent) {
-                setTimeout(() => {
-                    notifDispatch({
-                        type: "failure",
-                        message: "Already preset in Cart.",
-                    });
-
-                    clearTimeout(timmer);
-                    const timmerId = setTimeout(() => {
-                        notifDispatch({ type: "hide" });
-                    }, 3000);
-
-                    setTimmer(timmerId);
-                }, 500);
-
-                setIsLoading(false);
-
-                return;
-            }
-        }
-
-        await addDoc(cart, {
-            uid: user.uid,
-            dishId: dish.id,
-            title: dish.title,
-            image: dish.image,
-            dishType: dish.dishTypes[0] || "surprise",
-            price: dish.pricePerServing,
-        });
-
-        notifDispatch({ type: "hide" });
-
+      if (isPresent) {
         setTimeout(() => {
-            notifDispatch({
-                type: "success",
-                message: "Added to Cart.",
-            });
+          notifDispatch({
+            type: "failure",
+            message: "Already preset in Cart.",
+          });
 
-            clearTimeout(timmer);
-            const timmerId = setTimeout(() => {
-                notifDispatch({ type: "hide" });
-            }, 3000);
+          clearTimeout(timmer);
+          const timmerId = setTimeout(() => {
+            notifDispatch({ type: "hide" });
+          }, 3000);
 
-            setTimmer(timmerId);
+          setTimmer(timmerId);
         }, 500);
 
         setIsLoading(false);
-    };
-    return (
-        <ButtonCart onClick={addToCart}>
-            <PrimaryBtnIconWrapper>
-                {isLoading ? <ContainedSpinner /> : <ShoppingCart />}
-            </PrimaryBtnIconWrapper>
-        </ButtonCart>
-    );
+
+        return;
+      }
+    }
+
+    await addDoc(cart, {
+      uid: user.uid,
+      dishId: dish.id,
+      title: dish.title,
+      image: dish.image,
+      dishType: dish.dishTypes[0] || "surprise",
+      price: dish.pricePerServing,
+    });
+
+    notifDispatch({ type: "hide" });
+
+    setTimeout(() => {
+      notifDispatch({
+        type: "success",
+        message: "Added to Cart.",
+      });
+
+      clearTimeout(timmer);
+      const timmerId = setTimeout(() => {
+        notifDispatch({ type: "hide" });
+      }, 3000);
+
+      setTimmer(timmerId);
+    }, 500);
+
+    setIsLoading(false);
+  };
+  return (
+    <ButtonCart onClick={addToCart}>
+      <PrimaryBtnIconWrapper>
+        {isLoading ? <ContainedSpinner /> : <ShoppingCart />}
+      </PrimaryBtnIconWrapper>
+    </ButtonCart>
+  );
 }
 
 CartButton.defaultProps = {
-    dish: {},
+  dish: {},
 };
 
 CartButton.propTypes = {
-    dish: PropTypes.object,
+  dish: PropTypes.object,
 };

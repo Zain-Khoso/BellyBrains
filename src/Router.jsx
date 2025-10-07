@@ -14,69 +14,69 @@ const ContactUs = lazy(() => import("./pages/ContactUs"));
 
 // Router Setup.
 export default createBrowserRouter([
-    {
-        path: "/",
-        element: (
-            <Suspense fallback={<Spinner />}>
-                <Home />
-            </Suspense>
-        ),
-        errorElement: (
-            <Suspense fallback={<Spinner />}>
-                <ErrorPage />
-            </Suspense>
-        ),
-    },
-    {
-        path: "/about-us",
-        element: (
-            <Suspense fallback={<Spinner />}>
-                <AboutUs />
-            </Suspense>
-        ),
-        errorElement: (
-            <Suspense fallback={<Spinner />}>
-                <ErrorPage />
-            </Suspense>
-        ),
-    },
-    {
-        path: "/menu",
-        element: (
-            <Suspense fallback={<Spinner />}>
-                <Menu />
-            </Suspense>
-        ),
-        errorElement: (
-            <Suspense fallback={<Spinner />}>
-                <ErrorPage />
-            </Suspense>
-        ),
-    },
-    {
-        path: "/cart",
-        element: (
-            <Suspense fallback={<Spinner />}>
-                <Cart />
-            </Suspense>
-        ),
-        errorElement: (
-            <Suspense fallback={<Spinner />}>
-                <ErrorPage />
-            </Suspense>
-        ),
-    },
-    {
-        path: "/contact-us",
-        element: (
-            <Suspense fallback={<Spinner />}>
-                <ContactUs />
-            </Suspense>
-        ),
-        errorElement: (
-            <Suspense fallback={<Spinner />}>
-                <ErrorPage />
-            </Suspense>
-        ),
-    },
+  {
+    path: "/",
+    element: (
+      <Suspense fallback={<Spinner />}>
+        <Home />
+      </Suspense>
+    ),
+    errorElement: (
+      <Suspense fallback={<Spinner />}>
+        <ErrorPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/about-us",
+    element: (
+      <Suspense fallback={<Spinner />}>
+        <AboutUs />
+      </Suspense>
+    ),
+    errorElement: (
+      <Suspense fallback={<Spinner />}>
+        <ErrorPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/menu",
+    element: (
+      <Suspense fallback={<Spinner />}>
+        <Menu />
+      </Suspense>
+    ),
+    errorElement: (
+      <Suspense fallback={<Spinner />}>
+        <ErrorPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/cart",
+    element: (
+      <Suspense fallback={<Spinner />}>
+        <Cart />
+      </Suspense>
+    ),
+    errorElement: (
+      <Suspense fallback={<Spinner />}>
+        <ErrorPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/contact-us",
+    element: (
+      <Suspense fallback={<Spinner />}>
+        <ContactUs />
+      </Suspense>
+    ),
+    errorElement: (
+      <Suspense fallback={<Spinner />}>
+        <ErrorPage />
+      </Suspense>
+    ),
+  },
 ]);

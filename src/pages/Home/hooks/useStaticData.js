@@ -15,53 +15,53 @@ import TestimonialImage2 from "../assets/testimonials/2.jpg";
 import TestimonialImage3 from "../assets/testimonials/3.jpg";
 
 export default function useStaticData() {
-    const services = [
-        {
-            id: 1,
-            image: ServiceImage1,
-            placeholder: ServicePlaceholder1,
-            text: "Each dish epitomizes culinary perfection at its finest.",
-        },
-        {
-            id: 2,
-            image: ServiceImage2,
-            placeholder: ServicePlaceholder2,
-            text: "Perfection in every dish we create.",
-        },
-        {
-            id: 3,
-            image: ServiceImage3,
-            placeholder: ServicePlaceholder3,
-            text: "Heavenly delights in every bite.",
-        },
-        {
-            id: 4,
-            image: ServiceImage4,
-            placeholder: ServicePlaceholder4,
-            text: "1.5 billion spicy & sweet dishes served with pride.",
-        },
-    ];
+  const services = [
+    {
+      id: 1,
+      image: ServiceImage1,
+      placeholder: ServicePlaceholder1,
+      text: "Each dish epitomizes culinary perfection at its finest.",
+    },
+    {
+      id: 2,
+      image: ServiceImage2,
+      placeholder: ServicePlaceholder2,
+      text: "Perfection in every dish we create.",
+    },
+    {
+      id: 3,
+      image: ServiceImage3,
+      placeholder: ServicePlaceholder3,
+      text: "Heavenly delights in every bite.",
+    },
+    {
+      id: 4,
+      image: ServiceImage4,
+      placeholder: ServicePlaceholder4,
+      text: "1.5 billion spicy & sweet dishes served with pride.",
+    },
+  ];
 
-    const testimonials = [
-        {
-            id: 1,
-            image: TestimonialImage1,
-            placeholder: TestimonialPlaceholder1,
-            text: "“ Global dining perfection! Every visit to Belly Brains restaurants is a journey of flavors. A culinary passport to delight! “",
-        },
-        {
-            id: 2,
-            image: TestimonialImage2,
-            placeholder: TestimonialPlaceholder2,
-            text: "“ From Tokyo to NYC, Belly Brains restaurants never disappoint. Each bite is a world tour of taste. Consistently superb worldwide! “",
-        },
-        {
-            id: 3,
-            image: TestimonialImage3,
-            placeholder: TestimonialPlaceholder3,
-            text: "“ No matter the city, Belly Brains restaurants deliver an international feast. A global culinary adventure—always a treat! “",
-        },
-    ];
+  const testimonials = [
+    {
+      id: 1,
+      image: TestimonialImage1,
+      placeholder: TestimonialPlaceholder1,
+      text: "“ Global dining perfection! Every visit to Belly Brains restaurants is a journey of flavors. A culinary passport to delight! “",
+    },
+    {
+      id: 2,
+      image: TestimonialImage2,
+      placeholder: TestimonialPlaceholder2,
+      text: "“ From Tokyo to NYC, Belly Brains restaurants never disappoint. Each bite is a world tour of taste. Consistently superb worldwide! “",
+    },
+    {
+      id: 3,
+      image: TestimonialImage3,
+      placeholder: TestimonialPlaceholder3,
+      text: "“ No matter the city, Belly Brains restaurants deliver an international feast. A global culinary adventure—always a treat! “",
+    },
+  ];
 
-    return { services, testimonials };
+  return { services, testimonials };
 }

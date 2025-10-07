@@ -13,52 +13,53 @@ import DisplayBlanket from "../../DisplayBlanket/styled";
 import Notification from "../Notification";
 
 export default memo(function Navbar() {
-    // UI States
-    const theme = useTheme();
-    const [hamburgerVisible, setHamburgerVisible] = useState(false);
+  // UI States
+  const theme = useTheme();
+  const [hamburgerVisible, setHamburgerVisible] = useState(false);
 
-    return (
-        <>
-            <Wrapper
-                $hamburgerVisible={hamburgerVisible}
-                animate={{
-                    opacity: 1,
-                    translateY: theme.Heights.navbarHeight,
-                }}>
-                <StyledNavbar $hamburgerVisible={hamburgerVisible}>
-                    <StyledLink to="/">
-                        <img src={logo} alt="Brand Logo" />
-                    </StyledLink>
+  return (
+    <>
+      <Wrapper
+        $hamburgerVisible={hamburgerVisible}
+        animate={{
+          opacity: 1,
+          translateY: theme.Heights.navbarHeight,
+        }}
+      >
+        <StyledNavbar $hamburgerVisible={hamburgerVisible}>
+          <StyledLink to="/">
+            <img src={logo} alt="Brand Logo" />
+          </StyledLink>
 
-                    <HamburgerButton
-                        hamburgerVisible={hamburgerVisible}
-                        handleClick={setHamburgerVisible}
-                    />
+          <HamburgerButton
+            hamburgerVisible={hamburgerVisible}
+            handleClick={setHamburgerVisible}
+          />
 
-                    <NavList>
-                        <li>
-                            <PageLink to="/about-us">About</PageLink>
-                        </li>
-                        <li>
-                            <PageLink to="/menu">Menu</PageLink>
-                        </li>
-                        <li>
-                            <PageLink to="/cart">Cart</PageLink>
-                        </li>
-                        <li>
-                            <PageLink to="/contact-us">Contact</PageLink>
-                        </li>
-                    </NavList>
-                </StyledNavbar>
+          <NavList>
+            <li>
+              <PageLink to="/about-us">About</PageLink>
+            </li>
+            <li>
+              <PageLink to="/menu">Menu</PageLink>
+            </li>
+            <li>
+              <PageLink to="/cart">Cart</PageLink>
+            </li>
+            <li>
+              <PageLink to="/contact-us">Contact</PageLink>
+            </li>
+          </NavList>
+        </StyledNavbar>
 
-                <HamburgerMenu hamburgerVisible={hamburgerVisible} />
+        <HamburgerMenu hamburgerVisible={hamburgerVisible} />
 
-                <Notification />
-            </Wrapper>
+        <Notification />
+      </Wrapper>
 
-            {hamburgerVisible && (
-                <DisplayBlanket onClick={() => setHamburgerVisible(false)} />
-            )}
-        </>
-    );
+      {hamburgerVisible && (
+        <DisplayBlanket onClick={() => setHamburgerVisible(false)} />
+      )}
+    </>
+  );
 });

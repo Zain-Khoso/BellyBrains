@@ -4,40 +4,37 @@ import { useDispatch } from "react-redux";
 import { fetchMenu, setIsLoading } from "../../contexts/slice";
 
 export default function EndListener() {
-    const endElem = useRef(null);
-    const isMounted = useRef(true);
+  const endElem = useRef(null);
+  const isMounted = useRef(true);
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    useLayoutEffect(() => {
-        const fetchData = function () {
-            const observerOptions = {
-                root: null,
-                rootMargin: "200px",
-                threshold: "0",
-            };
+  useLayoutEffect(() => {
+    const fetchData = function () {
+      const observerOptions = {
+        root: null,
+        rootMargin: "200px",
+        threshold: "0",
+      };
 
-            const loadData = function (entries) {
-                const [entry] = entries;
+      const loadData = function (entries) {
+        const [entry] = entries;
 
-                if (!entry.isIntersecting) return;
+        if (!entry.isIntersecting) return;
 
-                dispatch(setIsLoading());
-                dispatch(fetchMenu());
-            };
+        dispatch(setIsLoading());
+        dispatch(fetchMenu());
+      };
 
-            const observer = new IntersectionObserver(
-                loadData,
-                observerOptions
-            );
+      const observer = new IntersectionObserver(loadData, observerOptions);
 
-            observer.observe(endElem.current);
-        };
+      observer.observe(endElem.current);
+    };
 
-        isMounted.current && fetchData();
+    isMounted.current && fetchData();
 
-        return () => (isMounted.current = false);
-    }, []);
+    return () => (isMounted.current = false);
+  }, []);
 
-    return <div ref={endElem}></div>;
+  return <div ref={endElem}></div>;
 }

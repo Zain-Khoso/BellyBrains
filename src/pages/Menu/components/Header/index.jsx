@@ -9,20 +9,20 @@ import SearchField from "../SearchForm";
 import Illustration from "../../../../components/Illustration";
 
 export default function Header() {
-    return (
-        <StyledHeader>
-            <Navbar />
+  return (
+    <StyledHeader>
+      <Navbar />
 
-            <Title>Menu</Title>
+      <Title>Menu</Title>
 
-            <Illustration
-                scale={50}
-                light={MenuLight}
-                dark={MenuDark}
-                altText="Illustration for the menu page"
-            />
+      <Illustration
+        scale={50}
+        light={MenuLight}
+        dark={MenuDark}
+        altText="Illustration for the menu page"
+      />
 
-            <SearchField />
-        </StyledHeader>
-    );
+      <SearchField />
+    </StyledHeader>
+  );
 }

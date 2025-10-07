@@ -28,7 +28,7 @@ export default function EmailForm() {
       import.meta.env.VITE_EMAILJS_SERVICE_ID,
       import.meta.env.VITE_EMAILJS_FORM_ID,
       form.current,
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
     );
 
     form.current.reset();

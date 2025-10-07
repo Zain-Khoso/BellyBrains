@@ -1,3 +1,3 @@
 export default function (docs) {
-    return;
+  return;
 }

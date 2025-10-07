@@ -14,54 +14,51 @@ const Testimonials = lazy(() => import("../Testimonials"));
 import { ButtonPrimary } from "../../../../components/Button";
 
 export default function Main() {
-    const SocialData = useRef([
-        { link: "https://facebook.com/ZAIN1KHOSO", svg: <Facebook /> },
-        { link: "https://instagram.com/sphere_of_zain/", svg: <Instagram /> },
-        { link: "https://linkedin.com/in/zain-khoso", svg: <Linkedin /> },
-        { link: "https://twitter.com/SphereOfZain", svg: <X /> },
-    ]);
+  const SocialData = useRef([
+    { link: "https://facebook.com/ZAIN1KHOSO", svg: <Facebook /> },
+    { link: "https://instagram.com/sphere_of_zain/", svg: <Instagram /> },
+    { link: "https://linkedin.com/in/zain-khoso", svg: <Linkedin /> },
+    { link: "https://twitter.com/SphereOfZain", svg: <X /> },
+  ]);
 
-    return (
-        <StyledMain>
-            <Suspense fallback={<DataLoader />}>
-                <SocialBar
-                    title="you can find us on"
-                    links={SocialData.current}
-                />
+  return (
+    <StyledMain>
+      <Suspense fallback={<DataLoader />}>
+        <SocialBar title="you can find us on" links={SocialData.current} />
 
-                <Section>
-                    <SectionTitle
-                        whileInView={{ opacity: 1, translateY: -70 }}
-                        viewport={{ once: true }}>
-                        why choose us.
-                    </SectionTitle>
-                    <Services />
-                </Section>
+        <Section>
+          <SectionTitle
+            whileInView={{ opacity: 1, translateY: -70 }}
+            viewport={{ once: true }}
+          >
+            why choose us.
+          </SectionTitle>
+          <Services />
+        </Section>
 
-                <CTA
-                    whileInView={{ opacity: 1, translateY: -70 }}
-                    viewport={{ once: true }}>
-                    <p>
-                        Try out our rich taste and flavor&nbsp;
-                        <TextPrimary>Today.</TextPrimary>
-                    </p>
-                    <Link to="/menu">
-                        <ButtonPrimary
-                            text="Explore Our Menu"
-                            svg={<Compass />}
-                        />
-                    </Link>
-                </CTA>
+        <CTA
+          whileInView={{ opacity: 1, translateY: -70 }}
+          viewport={{ once: true }}
+        >
+          <p>
+            Try out our rich taste and flavor&nbsp;
+            <TextPrimary>Today.</TextPrimary>
+          </p>
+          <Link to="/menu">
+            <ButtonPrimary text="Explore Our Menu" svg={<Compass />} />
+          </Link>
+        </CTA>
 
-                <Section>
-                    <SectionTitle
-                        whileInView={{ opacity: 1, translateY: -70 }}
-                        viewport={{ once: true }}>
-                        thoughts about us.
-                    </SectionTitle>
-                    <Testimonials />
-                </Section>
-            </Suspense>
-        </StyledMain>
-    );
+        <Section>
+          <SectionTitle
+            whileInView={{ opacity: 1, translateY: -70 }}
+            viewport={{ once: true }}
+          >
+            thoughts about us.
+          </SectionTitle>
+          <Testimonials />
+        </Section>
+      </Suspense>
+    </StyledMain>
+  );
 }

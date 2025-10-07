@@ -7,15 +7,16 @@ import { Sun, Moon } from "react-feather";
 import { ThemeToggleWrapper, StyledThemeToggleButton } from "./styled";
 
 export default function ThemeToggleButton() {
-    const { isLight, toggleTheme } = useContext(ToggleThemeContext);
+  const { isLight, toggleTheme } = useContext(ToggleThemeContext);
 
-    return (
-        <ThemeToggleWrapper>
-            <StyledThemeToggleButton
-                $lightMode={isLight}
-                onClick={() => toggleTheme(!isLight)}>
-                {isLight ? <Moon /> : <Sun />}
-            </StyledThemeToggleButton>
-        </ThemeToggleWrapper>
-    );
+  return (
+    <ThemeToggleWrapper>
+      <StyledThemeToggleButton
+        $lightMode={isLight}
+        onClick={() => toggleTheme(!isLight)}
+      >
+        {isLight ? <Moon /> : <Sun />}
+      </StyledThemeToggleButton>
+    </ThemeToggleWrapper>
+  );
 }

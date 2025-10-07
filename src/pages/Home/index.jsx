@@ -9,20 +9,21 @@ import Footer from "../../components/Footer";
 import RestoreScroll from "../../components/RestoreScroll";
 
 export default function Home() {
-    useDocTitle("Home");
+  useDocTitle("Home");
 
-    return (
-        <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            exit={{ scaleX: 0 }}>
-            <RestoreScroll />
+  return (
+    <motion.div
+      initial={{ scaleX: 0 }}
+      animate={{ scaleX: 1 }}
+      exit={{ scaleX: 0 }}
+    >
+      <RestoreScroll />
 
-            <Header />
+      <Header />
 
-            <Main />
+      <Main />
 
-            <Footer />
-        </motion.div>
-    );
+      <Footer />
+    </motion.div>
+  );
 }

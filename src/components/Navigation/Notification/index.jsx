@@ -7,20 +7,20 @@ import { NotificationContext } from "../../../contexts";
 import { Container, Text, SVGWrapper, ProgressBar } from "./styled";
 
 export default function Notification() {
-    const { notifState, notifDispatch } = useContext(NotificationContext);
+  const { notifState, notifDispatch } = useContext(NotificationContext);
 
-    return (
-        <Container $isOpen={notifState.visiblity}>
-            <Text $success={notifState.success}>{notifState.message}</Text>
+  return (
+    <Container $isOpen={notifState.visiblity}>
+      <Text $success={notifState.success}>{notifState.message}</Text>
 
-            <SVGWrapper onClick={() => notifDispatch({ type: "hide" })}>
-                <X />
-            </SVGWrapper>
+      <SVGWrapper onClick={() => notifDispatch({ type: "hide" })}>
+        <X />
+      </SVGWrapper>
 
-            <ProgressBar
-                $isOpen={notifState.visiblity}
-                $success={notifState.success}
-            />
-        </Container>
-    );
+      <ProgressBar
+        $isOpen={notifState.visiblity}
+        $success={notifState.success}
+      />
+    </Container>
+  );
 }

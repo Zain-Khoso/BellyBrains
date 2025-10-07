@@ -17,35 +17,35 @@ import DataLoader from "../../../../components/Loaders/DataLoader";
 import Illustration from "../../../../components/Illustration";
 
 export default function Main() {
-    const [user] = useAuthState(auth);
-    const dispatch = useDispatch();
-    const { isLoading, error, empty, cart } = useSelector(selectCart);
+  const [user] = useAuthState(auth);
+  const dispatch = useDispatch();
+  const { isLoading, error, empty, cart } = useSelector(selectCart);
 
-    useEffect(() => {
-        dispatch(fetchCart(user.uid));
-    }, []);
+  useEffect(() => {
+    dispatch(fetchCart(user.uid));
+  }, []);
 
-    return (
-        <StyledMain>
-            <Title>Cart</Title>
-            {isLoading ? (
-                <DataLoader />
-            ) : error ? (
-                <h2>Unable to load the cart, right now.</h2>
-            ) : empty ? (
-                <>
-                    <h2>There is nothing in your cart :(</h2>
-                    <Illustration
-                        scale={60}
-                        light={EmptyCartLight}
-                        dark={EmptyCartDark}
-                        altText="Illustration which sshows that the cart is empty"
-                    />
-                </>
-            ) : (
-                cart.map((item, index) => <Card key={index} dish={item} />)
-            )}
-            <Controller />
-        </StyledMain>
-    );
+  return (
+    <StyledMain>
+      <Title>Cart</Title>
+      {isLoading ? (
+        <DataLoader />
+      ) : error ? (
+        <h2>Unable to load the cart, right now.</h2>
+      ) : empty ? (
+        <>
+          <h2>There is nothing in your cart :(</h2>
+          <Illustration
+            scale={60}
+            light={EmptyCartLight}
+            dark={EmptyCartDark}
+            altText="Illustration which sshows that the cart is empty"
+          />
+        </>
+      ) : (
+        cart.map((item, index) => <Card key={index} dish={item} />)
+      )}
+      <Controller />
+    </StyledMain>
+  );
 }
