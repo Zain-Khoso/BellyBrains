@@ -24,4 +24,4 @@
 
 10. Responsiveness.
 
-Made with Problem Solving by [Zain Khoso](linkedin.com/in/zain-khoso).
+Made with Problem Solving by [Zain Khoso](zain-khoso.vercel.app).
